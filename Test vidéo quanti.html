@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'accueil</title>
+</head>
+<body>
+    <h1>Bienvenue</h1>
+    <div id="video-container"></div>
+    <button onclick="redirectToForm()">Passer au questionnaire</button>
+
+    <script>
+        // Liste de liens vers vos vidéos YouTube
+        var videos = [
+            'https://www.youtube.com/embed/gk4Wf5GaSPY&t',
+            'https://www.youtube.com/watch?v=gk4Wf5GaSPY&t',
+        ];
+
+        // Sélectionne une vidéo aléatoire
+        var randomVideo = videos[Math.floor(Math.random() * videos.length)];
+
+        // Affiche la vidéo sur la page
+        document.getElementById('video-container').innerHTML = '<iframe width="560" height="315" src="' + randomVideo + '" frameborder="0" allowfullscreen></iframe>';
+
+        // Fonction pour rediriger vers le formulaire Google Forms
+        function redirectToForm() {
+            window.location.href = 'https://www.scribens.fr';
+        }
+    </script>
+</body>
+</html>
