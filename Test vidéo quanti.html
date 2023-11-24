@@ -18,15 +18,28 @@
         ];
 
         // Sélectionne une vidéo aléatoire
-        var randomVideo = videos[Math.floor(Math.random() * videos.length)];
+         var randomVideo = videos[Math.floor(Math.random() * videos.length)];
 
-        // Affiche la vidéo sur la page
-        document.getElementById('video-container').innerHTML = '<iframe width="560" height="315" src="' + randomVideo + '" frameborder="0" allowfullscreen></iframe>';
+// Extrait l'ID de la vidéo
+var videoId = extractVideoId(randomVideo);
 
-        // Fonction pour rediriger vers le formulaire Google Forms
-        function redirectToForm() {
-            window.location.href = 'https://www.scribens.fr';
-        }
-    </script>
+// Construit l'URL de la vidéo dans le format d'iframe
+var embedUrl = 'https://www.youtube.com/embed/' + videoId;
+
+// Affiche la vidéo sur la page
+document.getElementById('video-container').innerHTML = '<iframe width="560" height="315" src="' + embedUrl + '" frameborder="0" allowfullscreen></iframe>';
+
+// Fonction pour rediriger vers le formulaire Google Forms
+function redirectToForm() {
+    // Remplacez "LIEN_VERS_VOTRE_FORMULAIRE" par le lien réel de votre formulaire Google Forms
+    window.location.href = 'LIEN_VERS_VOTRE_FORMULAIRE';
+}
+
+// Fonction pour extraire l'ID de la vidéo depuis l'URL YouTube
+function extractVideoId(url) {
+    var match = url.match(/(?:\/|v=)([a-zA-Z0-9_-]{11})/);
+    return match ? match[1] : null;
+}
+</script>
 </body>
 </html>
